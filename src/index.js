@@ -1,4 +1,4 @@
-const pixelMatches = require("./delta");
+const pixelMatches = require("matches-subimage/src/delta");
 module.exports = subImageMatch;
 
 const defaultOptions = {
@@ -43,7 +43,7 @@ function subImageMatch(img, subImg, optionsParam) {
                 matchingTopRowX++;
                 if (matchingTopRowX === subImgWidth) {
                     if (subImageMatchOnCoordinates(img, subImg, matchingTopRowStartY, matchingTopRowStartX, maxDelta)) {
-                        return true;
+                        return {matches:true,x:matchingTopRowStartX,y:matchingTopRowStartY};
                     }
                     x = matchingTopRowStartX; // put our search position x back to where the matching row began
                     matchingTopRowX = 0;
@@ -53,7 +53,7 @@ function subImageMatch(img, subImg, optionsParam) {
             }
         }
     }
-    return false;
+    return {matches:false,x:0,y:0};
 }
 
 function subImageMatchOnCoordinates(img, subImg, matchY, matchX, maxDelta) {
