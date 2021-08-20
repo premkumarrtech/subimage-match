@@ -5,10 +5,10 @@ module.exports = pixelMatches;
 function pixelMatches(img1, img2, k, m, maxDelta, options, yOnly) {
 
     if ((k + 3) >= img1.length) {
-        throw new Error(`Cannot get positions ${k} through ${k + 3} from img array of length ${img1.length}`);
+        //throw new Error(`Cannot get positions ${k} through ${k + 3} from img array of length ${img1.length}`);
     }
     if ((m + 3) >= img2.length) {
-        throw new Error(`Cannot get positions ${m} through ${m + 3} from img array of length ${img2.length}`);
+        //throw new Error(`Cannot get positions ${m} through ${m + 3} from img array of length ${img2.length}`);
     }
 
     let r1 = img1[k + 0];
